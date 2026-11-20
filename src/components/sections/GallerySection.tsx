@@ -17,8 +17,9 @@ export function GallerySection() {
             Galeri Garapan Nyata
           </h2>
           <p className="max-w-[54ch] text-sm leading-relaxed text-ink-muted sm:text-base">
-            Slot di bawah disiapkan khusus untuk foto unit yang benar-benar
-            dikerjakan di garasi Jopaten, tanpa memakai foto stok internet.
+            Dokumentasi unit yang benar-benar dikerjakan di garasi Jopaten,
+            tanpa foto stok internet. Slot yang masih kosong menunggu
+            dokumentasi pengerjaan asli berikutnya.
           </p>
         </div>
 
@@ -31,6 +32,13 @@ export function GallerySection() {
                   ? "lg:col-span-5"
                   : "lg:col-span-6";
 
+            const sizes =
+              index === 0
+                ? "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 640px"
+                : index === 1
+                  ? "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 460px"
+                  : "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 540px";
+
             return (
               <article key={slot.slotCode} className={layoutClass}>
                 <WorkshopPhotoFrame
@@ -42,11 +50,7 @@ export function GallerySection() {
                   aspectLabel={slot.aspectLabel}
                   width={slot.width}
                   height={slot.height}
-                  sizes={
-                    index === 0
-                      ? "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 660px"
-                      : "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 540px"
-                  }
+                  sizes={sizes}
                   placeholderHint={slot.placeholderHint}
                 />
                 <div className="mt-3">

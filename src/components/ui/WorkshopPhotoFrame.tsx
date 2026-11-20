@@ -1,11 +1,19 @@
 import Image from "next/image";
+import type { PhotoAspectRatio } from "@/data/workshop";
+
+const ASPECT_CLASS_MAP: Record<PhotoAspectRatio, string> = {
+  "4/3": "aspect-[4/3]",
+  "16/10": "aspect-[16/10]",
+  "1/1": "aspect-square",
+  "3/4": "aspect-[3/4]",
+};
 
 interface WorkshopPhotoFrameProps {
   slotCode: string;
   imageSrc: string | null;
   placeholderSrc: string;
   alt: string;
-  aspectRatio: "4/3" | "16/10";
+  aspectRatio: PhotoAspectRatio;
   aspectLabel: string;
   width: number;
   height: number;
@@ -29,8 +37,7 @@ export function WorkshopPhotoFrame({
 }: WorkshopPhotoFrameProps) {
   const isPlaceholder = imageSrc === null;
   const resolvedSrc = imageSrc ?? placeholderSrc;
-  const aspectClass =
-    aspectRatio === "16/10" ? "aspect-[16/10]" : "aspect-[4/3]";
+  const aspectClass = ASPECT_CLASS_MAP[aspectRatio];
 
   return (
     <div

@@ -14,13 +14,13 @@ export function HeroSection() {
             id="hero-heading"
             className="font-display text-[clamp(2.35rem,5vw+1rem,4.25rem)] font-bold leading-[1.02] tracking-tight text-ink"
           >
-            Garasi Motuba di Jalur Pesisir Selatan.
+            Garasi Motuba di Jalur Lintas Selatan.
           </h1>
 
           <p className="mt-5 max-w-[60ch] text-[clamp(1rem,0.25vw+0.94rem,1.0625rem)] leading-[1.65] text-ink-muted">
-            Bengkel rumahan di Jopaten RT 5, Poncosari, Srandakan untuk servis,
-            cat, dan variasi mobil tua. Jadwal fleksibel lewat janjian WhatsApp,
-            paling aktif di hari Minggu.
+            Bengkel rumahan Motuba Variation Workshop melayani servis,
+            perbaikan, pengecatan, variasi, dan restorasi mobil tua (motuba) di
+            Poncosari, Srandakan, Bantul.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

@@ -53,6 +53,8 @@ export interface HeroPhotoConfig {
   height: number;
 }
 
+export type PhotoAspectRatio = "4/3" | "16/10" | "1/1" | "3/4";
+
 export interface GallerySlot {
   slotCode: string;
   imageSrc: string | null;
@@ -61,7 +63,7 @@ export interface GallerySlot {
   carModel: string;
   workSummary: string;
   placeholderHint: string;
-  aspectRatio: "4/3" | "16/10";
+  aspectRatio: PhotoAspectRatio;
   aspectLabel: string;
   width: number;
   height: number;
@@ -94,7 +96,7 @@ export const WORKSHOP_PROFILE: WorkshopProfile = {
     lng: 110.2397199,
   },
   routeLandmark:
-    "Dekat jalur Jl. Kuwaru (koridor Poncosari ke arah Kretek), pesisir selatan Bantul.",
+    "Dekat jalur Jl. Kuwaru, pojok ujung desa ambil ke utara masuk kedalam",
   scheduleSummary:
     "Fleksibel sesuai kesediaan waktu lewat janjian WhatsApp, paling aktif buka di hari Minggu.",
   pickupPolicy:
@@ -192,14 +194,14 @@ export const SERVICES: readonly ServiceItem[] = [
 // lalu ubah imageSrc menjadi "/images/nama-file.jpg".
 export const HERO_PHOTO: HeroPhotoConfig = {
   slotCode: "SLOT HERO",
-  imageSrc: null,
+  imageSrc: "/images/hero-garasi-motuba.jpg",
   placeholderSrc: "/images/placeholder-hero.svg",
-  alt: "Slot foto utama bengkel Motuba Variation Workshop di Jopaten RT 5, Poncosari, Srandakan",
+  alt: "Suasana garasi Motuba Variation Workshop di Jopaten RT 5, Poncosari, Srandakan dengan unit Suzuki Baleno dan kendaraan lain yang sedang ditangani",
   caption:
-    "Slot foto utama garasi dan unit garapan di Jopaten RT 5, Poncosari (siap diganti foto asli bengkel).",
+    "Suasana garasi dan pengerjaan mobil tua di Jopaten RT 5, Poncosari, Srandakan.",
   aspectLabel: "4:3",
-  width: 800,
-  height: 600,
+  width: 1200,
+  height: 900,
 };
 
 // Panduan pemilik: isi slot galeri satu per satu dengan menaruh foto di public/images/
@@ -207,56 +209,56 @@ export const HERO_PHOTO: HeroPhotoConfig = {
 export const GALLERY_SLOTS: readonly GallerySlot[] = [
   {
     slotCode: "SLOT 01",
-    imageSrc: null,
-    placeholderSrc: "/images/placeholder-slot-wide.svg",
-    alt: "Slot foto garapan utama bengkel Motuba Variation Workshop",
-    carModel: "[Belum diisi foto garapan utama]",
+    imageSrc: "/images/garapan-civic-wonder.jpg",
+    placeholderSrc: "/images/placeholder-slot.svg",
+    alt: "Honda Civic Wonder hijau dengan kap mesin terbuka saat pengecekan ruang mesin di garasi Motuba Variation Workshop",
+    carModel: "Honda Civic Wonder",
     workSummary:
-      "Siap diisi foto unit utama yang selesai dikerjakan di garasi (mesin, bodi, atau tampilan keseluruhan).",
-    placeholderHint: "Foto garapan unggulan, rasio lebar 16:10.",
-    aspectRatio: "16/10",
-    aspectLabel: "16:10",
-    width: 800,
-    height: 500,
+      "Pengecekan ruang mesin dan perawatan rutin mobil tua di garasi Jopaten.",
+    placeholderHint: "Foto garapan utama di garasi Jopaten (1:1).",
+    aspectRatio: "1/1",
+    aspectLabel: "1:1",
+    width: 1200,
+    height: 1200,
     featured: true,
   },
   {
     slotCode: "SLOT 02",
-    imageSrc: null,
+    imageSrc: "/images/garapan-ganti-kopling.jpg",
     placeholderSrc: "/images/placeholder-slot.svg",
-    alt: "Slot foto garapan kedua bengkel Motuba Variation Workshop",
-    carModel: "[Belum diisi foto garapan]",
+    alt: "Tangan mekanik memegang matahari kopling lama yang aus dengan unit kopling baru di meja bengkel",
+    carModel: "Penggantian Matahari Kopling",
     workSummary:
-      "Slot untuk dokumentasi pekerjaan servis mesin, karburator, atau kaki-kaki.",
-    placeholderHint: "Foto pengerjaan mekanis atau ruang mesin (4:3).",
-    aspectRatio: "4/3",
-    aspectLabel: "4:3",
-    width: 800,
-    height: 600,
+      "Perbandingan komponen matahari kopling lama yang sudah aus dan berkarat dengan unit baru sebelum pemasangan.",
+    placeholderHint: "Foto penggantian komponen mekanis (3:4).",
+    aspectRatio: "3/4",
+    aspectLabel: "3:4",
+    width: 900,
+    height: 1200,
   },
   {
     slotCode: "SLOT 03",
-    imageSrc: null,
+    imageSrc: "/images/garapan-mesin-karburator.jpg",
     placeholderSrc: "/images/placeholder-slot.svg",
-    alt: "Slot foto garapan ketiga bengkel Motuba Variation Workshop",
-    carModel: "[Belum diisi foto garapan]",
+    alt: "Detail ruang mesin mobil tua karburator dengan tutup klep terbuka saat proses servis",
+    carModel: "Servis Mesin Karburator",
     workSummary:
-      "Slot untuk dokumentasi hasil pengecatan panel atau perapian bodi mobil tua.",
-    placeholderHint: "Foto hasil cat atau perapian bodi (4:3).",
+      "Pembongkaran tutup klep dan pengecekan karburator serta jalur pengapian mesin mobil tua.",
+    placeholderHint: "Foto pengerjaan ruang mesin atau karburator (4:3).",
     aspectRatio: "4/3",
     aspectLabel: "4:3",
-    width: 800,
-    height: 600,
+    width: 1120,
+    height: 840,
   },
   {
     slotCode: "SLOT 04",
     imageSrc: null,
     placeholderSrc: "/images/placeholder-slot.svg",
-    alt: "Slot foto garapan keempat bengkel Motuba Variation Workshop",
-    carModel: "[Belum diisi foto garapan]",
+    alt: "Slot placeholder dokumentasi pengecatan dan perapian bodi Motuba Variation Workshop",
+    carModel: "[Menunggu foto pengecatan & perapian bodi]",
     workSummary:
-      "Slot untuk foto pemasangan variasi, aksesori, atau suasana diskusi santai di garasi.",
-    placeholderHint: "Foto hasil variasi atau suasana garasi Jopaten (4:3).",
+      "Slot khusus dokumentasi pengerjaan dempul, perapian bodi, dan pengecatan panel unit asli di garasi Jopaten.",
+    placeholderHint: "Foto proses atau hasil pengecatan panel bodi (4:3).",
     aspectRatio: "4/3",
     aspectLabel: "4:3",
     width: 800,
