@@ -1,0 +1,36 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="800"
+  height="500"
+  viewBox="0 0 800 500"
+  fill="none"
+  role="img"
+  aria-label="Bingkai placeholder foto garapan utama rasio 16 banding 10"
+>
+  <rect width="800" height="500" fill="#EAE3D2" />
+  <rect x="24" y="24" width="752" height="452" stroke="#CFC6B2" stroke-width="2" />
+
+  <path d="M44 76V44H76" stroke="#1C1B18" stroke-width="2.5" />
+  <path d="M724 44H756V76" stroke="#1C1B18" stroke-width="2.5" />
+  <path d="M44 424V456H76" stroke="#1C1B18" stroke-width="2.5" />
+  <path d="M724 456H756V424" stroke="#1C1B18" stroke-width="2.5" />
+
+  <rect x="240" y="160" width="320" height="180" rx="4" stroke="#4E4A42" stroke-width="2" stroke-dasharray="8 6" />
+  <circle cx="400" cy="250" r="34" stroke="#1C1B18" stroke-width="2" />
+  <line x1="348" y1="250" x2="452" y2="250" stroke="#4E4A42" stroke-width="2" />
+  <line x1="400" y1="198" x2="400" y2="302" stroke="#4E4A42" stroke-width="2" />
+  <circle cx="400" cy="250" r="7" fill="#A92B21" />
+
+  <text
+    x="400"
+    y="124"
+    text-anchor="middle"
+    fill="#4E4A42"
+    font-family="monospace"
+    font-size="16"
+    font-weight="600"
+    letter-spacing="1.5"
+  >
+    SLOT FOTO GARAPAN UTAMA 16:10
+  </text>
+</svg>
