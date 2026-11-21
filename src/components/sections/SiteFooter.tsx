@@ -16,9 +16,9 @@ export function SiteFooter() {
             <WorkshopLogo />
           </a>
           <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-ink">
-            Bengkel mobil rumahan spesialis mobil tua di Jopaten RT 5,
-            Poncosari, Srandakan, Bantul. Paling aktif buka di hari Minggu dan
-            hari lain sesuai janjian WhatsApp.
+            Bengkel mobil rumahan spesialis mobil tua di Srandakan, Bantul,
+            Yogyakarta. Paling aktif buka di hari Minggu dan hari lain sesuai
+            janjian WhatsApp.
           </p>
         </div>
 

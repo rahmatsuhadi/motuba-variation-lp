@@ -9,11 +9,15 @@ import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SiteFooter } from "@/components/sections/SiteFooter";
 import { SiteHeader } from "@/components/sections/SiteHeader";
-import { HERO_PHOTO, WORKSHOP_PROFILE } from "@/data/workshop";
+import { WORKSHOP_PROFILE } from "@/data/workshop";
 import {
   buildHomeStructuredData,
   HOME_DESCRIPTION,
   HOME_TITLE,
+  OG_IMAGE_ALT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_PATH,
+  OG_IMAGE_WIDTH,
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -42,30 +46,26 @@ export const metadata: Metadata = {
     siteName: WORKSHOP_PROFILE.brandName,
     locale: "id_ID",
     type: "website",
-    images: HERO_PHOTO.imageSrc
-      ? [
-          {
-            url: HERO_PHOTO.imageSrc,
-            width: HERO_PHOTO.width,
-            height: HERO_PHOTO.height,
-            alt: HERO_PHOTO.alt,
-            type: "image/jpeg",
-          },
-        ]
-      : undefined,
+    images: [
+      {
+        url: OG_IMAGE_PATH,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: OG_IMAGE_ALT,
+        type: "image/jpeg",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
-    images: HERO_PHOTO.imageSrc
-      ? [
-          {
-            url: HERO_PHOTO.imageSrc,
-            alt: HERO_PHOTO.alt,
-          },
-        ]
-      : undefined,
+    images: [
+      {
+        url: OG_IMAGE_PATH,
+        alt: OG_IMAGE_ALT,
+      },
+    ],
   },
 };
 

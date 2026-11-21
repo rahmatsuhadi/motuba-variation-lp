@@ -18,7 +18,7 @@ export function LocationSection() {
               id="lokasi-heading"
               className="font-display text-[clamp(1.75rem,3vw+0.85rem,2.75rem)] font-bold leading-[1.08] text-ink"
             >
-              Bengkel Rumahan di Jopaten RT 5, Poncosari
+              Lokasi Bengkel di Srandakan, Bantul
             </h2>
           </div>
 

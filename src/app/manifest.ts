@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: WORKSHOP_PROFILE.brandName,
     short_name: WORKSHOP_PROFILE.wordmarkTitle,
     description:
-      "Bengkel mobil rumahan spesialis mobil tua (motuba) untuk servis, pengecatan, variasi, dan jemput unit di Poncosari, Srandakan, Bantul.",
+      "Bengkel mobil rumahan spesialis mobil tua (motuba) untuk servis, pengecatan, variasi, dan jemput unit di Srandakan, Bantul, Yogyakarta.",
     start_url: "/",
     display: "standalone",
     background_color: "#f4f0e6",

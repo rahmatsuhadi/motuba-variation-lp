@@ -20,7 +20,7 @@ export function HeroSection() {
           <p className="mt-5 max-w-[60ch] text-[clamp(1rem,0.25vw+0.94rem,1.0625rem)] leading-[1.65] text-ink-muted">
             Bengkel rumahan Motuba Variation Workshop melayani servis,
             perbaikan, pengecatan, variasi, dan restorasi mobil tua (motuba) di
-            Poncosari, Srandakan, Bantul.
+            Srandakan, Bantul, Yogyakarta.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

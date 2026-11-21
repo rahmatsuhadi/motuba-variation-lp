@@ -10,7 +10,13 @@ export const HOME_TITLE =
   "Bengkel Mobil Tua Srandakan, Bantul | Motuba Variation";
 
 export const HOME_DESCRIPTION =
-  "Bengkel mobil tua (motuba) di Poncosari, Srandakan, Bantul. Servis mesin, karburator, cat, variasi, dan jemput unit. Aktif hari Minggu, chat WA dulu.";
+  "Bengkel mobil tua (motuba) di Srandakan, Bantul, Yogyakarta. Servis mesin, karburator, cat, variasi, dan jemput unit. Aktif hari Minggu, chat WA dulu.";
+
+export const OG_IMAGE_PATH = "/images/og-motuba-workshop.jpg";
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+export const OG_IMAGE_ALT =
+  "Motuba Variation Workshop, bengkel mobil tua di Srandakan, Bantul, Yogyakarta untuk servis, pengecatan, variasi, dan jemput unit.";
 
 export function getWorkshopImageUrls(): string[] {
   return [HERO_PHOTO.imageSrc, ...GALLERY_SLOTS.map((slot) => slot.imageSrc)]
@@ -42,7 +48,7 @@ export function buildHomeStructuredData() {
         },
         image: workshopImages,
         description:
-          "Bengkel mobil rumahan spesialis mobil tua (motuba) di Jopaten RT 5, Poncosari, Srandakan, Bantul untuk servis, pengecatan, variasi, dan jemput unit area sekitar.",
+          "Bengkel mobil rumahan spesialis mobil tua (motuba) di Srandakan, Bantul, Yogyakarta untuk servis, pengecatan, variasi, dan jemput unit area sekitar.",
         telephone: `+${WORKSHOP_PROFILE.whatsappE164}`,
         hasMap: WORKSHOP_PROFILE.mapsUrl,
         address: {
@@ -70,10 +76,6 @@ export function buildHomeStructuredData() {
         areaServed: [
           {
             "@type": "AdministrativeArea",
-            name: "Poncosari, Srandakan, Bantul",
-          },
-          {
-            "@type": "AdministrativeArea",
             name: "Kecamatan Srandakan, Bantul",
           },
           {
@@ -83,6 +85,10 @@ export function buildHomeStructuredData() {
           {
             "@type": "Place",
             name: "Jalur Lintas Selatan (JJLS) Bantul",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Daerah Istimewa Yogyakarta",
           },
         ],
         knowsAbout: [

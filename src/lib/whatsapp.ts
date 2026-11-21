@@ -15,7 +15,7 @@ export interface ConsultationPayload {
 
 export function buildGeneralWhatsAppUrl(
   phoneE164: string,
-  greeting = "Halo Mas, mau tanya jadwal dan konsultasi bengkel Motuba Variation Workshop di Poncosari.",
+  greeting = "Halo Mas, mau tanya jadwal dan konsultasi bengkel Motuba Variation Workshop.",
 ): string {
   const cleanText = greeting.trim();
   return `https://wa.me/${phoneE164}?text=${encodeURIComponent(cleanText)}`;

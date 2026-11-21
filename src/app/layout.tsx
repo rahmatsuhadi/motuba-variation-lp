@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     : undefined,
   other: {
     "geo.region": "ID-YO",
-    "geo.placename": "Poncosari, Srandakan, Bantul",
+    "geo.placename": "Srandakan, Bantul, Yogyakarta",
     "geo.position": `${WORKSHOP_PROFILE.coordinates.lat};${WORKSHOP_PROFILE.coordinates.lng}`,
     ICBM: `${WORKSHOP_PROFILE.coordinates.lat}, ${WORKSHOP_PROFILE.coordinates.lng}`,
   },

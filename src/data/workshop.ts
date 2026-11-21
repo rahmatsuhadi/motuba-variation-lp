@@ -81,7 +81,7 @@ export const WORKSHOP_PROFILE: WorkshopProfile = {
   brandName: "Motuba Variation Workshop",
   wordmarkTitle: "Motuba Variation",
   wordmarkSubtitle: "Workshop, Srandakan",
-  taglineLocation: "Poncosari, Srandakan, Bantul",
+  taglineLocation: "Srandakan, Bantul, Yogyakarta",
   phoneDisplay: "0838-7881-8557",
   phoneHref: "tel:+6283878818557",
   whatsappE164: "6283878818557",
@@ -114,8 +114,8 @@ export const QUICK_INFO_ITEMS: readonly QuickInfoItem[] = [
   {
     code: "01",
     label: "Lokasi bengkel",
-    value: "Jopaten RT 5, Poncosari, Srandakan",
-    detail: "Dekat jalur Jl. Kuwaru, pesisir selatan Bantul.",
+    value: "Srandakan, Bantul, Yogyakarta",
+    detail: "Dekat Jl. Kuwaru dan Jalur Lintas Selatan (JJLS).",
   },
   {
     code: "02",
@@ -137,7 +137,7 @@ export const SERVICES: readonly ServiceItem[] = [
     slug: "servis",
     title: "Servis & Perawatan",
     summary:
-      "Pengecekan mesin, sistem bahan bakar lawas, pengereman, kaki-kaki, dan kelistrikan ringan agar mobil tua tetap nyaman dipakai harian maupun menyusuri jalur pesisir.",
+      "Pengecekan mesin, sistem bahan bakar lawas, pengereman, kaki-kaki, dan kelistrikan ringan agar mobil tua tetap nyaman dipakai harian maupun melintas Jalur Lintas Selatan.",
     symptomsOrNotes: [
       "Tune up berkala, setel karburator, dan pengecekan pengapian",
       "Pemeriksaan rem, kopling, serta kaki-kaki sebelum dipakai perjalanan jauh",
@@ -179,9 +179,9 @@ export const SERVICES: readonly ServiceItem[] = [
     slug: "jemput",
     title: "Jemput Unit Area Sekitar",
     summary:
-      "Opsi penjemputan unit untuk area yang masih satu daerah dan terjangkau dari Poncosari, Srandakan apabila pemilik belum sempat mengantar atau mobil berisiko disetir langsung.",
+      "Opsi penjemputan unit untuk area Srandakan, Bantul, dan sekitarnya yang masih terjangkau apabila pemilik belum sempat mengantar atau mobil berisiko disetir langsung.",
     symptomsOrNotes: [
-      "Melayani area sekitar Poncosari, Srandakan, dan jangkauan terdekat di Bantul",
+      "Melayani area Srandakan, Bantul, dan jangkauan terdekat sekitar JJLS",
       "Cocok untuk mobil yang mogok di rumah atau bermasalah di rem dan mesin",
       "Titik lokasi patokan dusun dikirim dulu via WhatsApp",
     ],
@@ -196,9 +196,8 @@ export const HERO_PHOTO: HeroPhotoConfig = {
   slotCode: "SLOT HERO",
   imageSrc: "/images/hero-garasi-motuba.jpg",
   placeholderSrc: "/images/placeholder-hero.svg",
-  alt: "Suasana garasi Motuba Variation Workshop di Jopaten RT 5, Poncosari, Srandakan dengan unit Suzuki Baleno dan kendaraan lain yang sedang ditangani",
-  caption:
-    "Suasana garasi dan pengerjaan mobil tua di Jopaten RT 5, Poncosari, Srandakan.",
+  alt: "Suasana garasi Motuba Variation Workshop di Srandakan, Bantul dengan unit Suzuki Baleno dan kendaraan lain yang sedang ditangani",
+  caption: "Suasana garasi dan pengerjaan mobil tua di Srandakan, Bantul.",
   aspectLabel: "4:3",
   width: 1200,
   height: 900,
@@ -214,8 +213,8 @@ export const GALLERY_SLOTS: readonly GallerySlot[] = [
     alt: "Honda Civic Wonder hijau dengan kap mesin terbuka saat pengecekan ruang mesin di garasi Motuba Variation Workshop",
     carModel: "Honda Civic Wonder",
     workSummary:
-      "Pengecekan ruang mesin dan perawatan rutin mobil tua di garasi Jopaten.",
-    placeholderHint: "Foto garapan utama di garasi Jopaten (1:1).",
+      "Pengecekan ruang mesin dan perawatan rutin mobil tua di garasi Motuba Variation.",
+    placeholderHint: "Foto garapan utama di garasi Motuba Variation (1:1).",
     aspectRatio: "1/1",
     aspectLabel: "1:1",
     width: 1200,
@@ -252,17 +251,18 @@ export const GALLERY_SLOTS: readonly GallerySlot[] = [
   },
   {
     slotCode: "SLOT 04",
-    imageSrc: null,
+    imageSrc: "/images/garapan-kelistrikan-kabel.jpg",
     placeholderSrc: "/images/placeholder-slot.svg",
-    alt: "Slot placeholder dokumentasi pengecatan dan perapian bodi Motuba Variation Workshop",
-    carModel: "[Menunggu foto pengecatan & perapian bodi]",
+    alt: "Penelusuran kabel kelistrikan bawah dasbor dan rumah kunci kontak mobil tua di garasi Motuba Variation Workshop",
+    carModel: "Penelusuran Kelistrikan & Kunci Kontak",
     workSummary:
-      "Slot khusus dokumentasi pengerjaan dempul, perapian bodi, dan pengecatan panel unit asli di garasi Jopaten.",
-    placeholderHint: "Foto proses atau hasil pengecatan panel bodi (4:3).",
+      "Pengecekan jalur kabel bawah dasbor, rumah kunci kontak, dan saklar kombinasi mobil tua di garasi Motuba Variation.",
+    placeholderHint:
+      "Foto pengerjaan kelistrikan atau perapian unit asli (4:3).",
     aspectRatio: "4/3",
     aspectLabel: "4:3",
-    width: 800,
-    height: 600,
+    width: 1120,
+    height: 840,
   },
 ];
 

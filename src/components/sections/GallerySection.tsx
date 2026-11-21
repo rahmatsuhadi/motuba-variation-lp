@@ -14,12 +14,11 @@ export function GallerySection() {
             id="garapan-heading"
             className="font-display text-[clamp(1.75rem,3vw+0.85rem,2.75rem)] font-bold leading-[1.08] text-ink"
           >
-            Galeri Garapan Nyata
+            Garapan di Bengkel
           </h2>
           <p className="max-w-[54ch] text-sm leading-relaxed text-ink-muted sm:text-base">
-            Dokumentasi unit yang benar-benar dikerjakan di garasi Jopaten,
-            tanpa foto stok internet. Slot yang masih kosong menunggu
-            dokumentasi pengerjaan asli berikutnya.
+            Foto asli beberapa mobil tua yang pernah mampir dan digarap langsung
+            di bengkel.
           </p>
         </div>
 
