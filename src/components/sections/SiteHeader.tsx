@@ -13,7 +13,7 @@ export function SiteHeader() {
           href="#top"
           className="inline-flex min-h-11 min-w-0 max-w-full items-center rounded-[2px] py-0.5"
         >
-          <WorkshopLogo />
+          <WorkshopLogo eager />
         </a>
 
         <nav

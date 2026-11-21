@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export function WorkshopLogo() {
+interface WorkshopLogoProps {
+  eager?: boolean;
+}
+
+export function WorkshopLogo({ eager = false }: WorkshopLogoProps) {
   return (
     <span className="inline-flex min-w-0 items-center gap-2.5 sm:gap-3">
       <Image
@@ -9,7 +13,7 @@ export function WorkshopLogo() {
         aria-hidden="true"
         width={65}
         height={36}
-        loading="eager"
+        loading={eager ? "eager" : "lazy"}
         className="h-8 w-[58px] shrink-0 object-contain sm:h-9 sm:w-[65px]"
       />
       <span className="flex min-w-0 flex-col text-left">

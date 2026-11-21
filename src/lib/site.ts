@@ -25,7 +25,7 @@ export const GOOGLE_SITE_VERIFICATION =
   process.env.GOOGLE_SITE_VERIFICATION?.trim() || undefined;
 
 // Diperbarui manual saat ada perubahan konten utama agar sitemap lastmod konsisten antar build.
-export const SITE_LAST_MODIFIED = "2026-11-20";
+export const SITE_LAST_MODIFIED = "2026-11-21";
 
 export function toAbsoluteUrl(path: string): string {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;

@@ -28,7 +28,9 @@ export function LocationSection() {
                 Alamat lengkap
               </dt>
               <dd className="mt-1 max-w-[58ch] text-base font-medium leading-relaxed text-ink">
-                {WORKSHOP_PROFILE.address}
+                <address className="not-italic">
+                  {WORKSHOP_PROFILE.address}
+                </address>
               </dd>
             </div>
 

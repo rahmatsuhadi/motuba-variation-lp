@@ -14,7 +14,7 @@ export function HeroSection() {
             id="hero-heading"
             className="font-display text-[clamp(2.35rem,5vw+1rem,4.25rem)] font-bold leading-[1.02] tracking-tight text-ink"
           >
-            Garasi Motuba di Jalur Lintas Selatan.
+            Bengkel Mobil Tua di Srandakan, Bantul
           </h1>
 
           <p className="mt-5 max-w-[60ch] text-[clamp(1rem,0.25vw+0.94rem,1.0625rem)] leading-[1.65] text-ink-muted">

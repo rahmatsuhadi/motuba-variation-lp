@@ -83,7 +83,7 @@ export const WORKSHOP_PROFILE: WorkshopProfile = {
   wordmarkSubtitle: "Workshop, Srandakan",
   taglineLocation: "Poncosari, Srandakan, Bantul",
   phoneDisplay: "0838-7881-8557",
-  phoneHref: "tel:083878818557",
+  phoneHref: "tel:+6283878818557",
   whatsappE164: "6283878818557",
   mapsUrl: "https://maps.app.goo.gl/x7qM7bokkogZkpKh8",
   address:
