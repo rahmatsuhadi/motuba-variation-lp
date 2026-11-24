@@ -19,9 +19,10 @@ export const OG_IMAGE_ALT =
   "Motuba Variation Workshop, bengkel mobil tua di Srandakan, Bantul, Yogyakarta untuk servis, pengecatan, variasi, dan jemput unit.";
 
 export function getWorkshopImageUrls(): string[] {
-  return [HERO_PHOTO.imageSrc, ...GALLERY_SLOTS.map((slot) => slot.imageSrc)]
-    .filter((src): src is string => Boolean(src))
-    .map((src) => toAbsoluteUrl(src));
+  return [
+    HERO_PHOTO.imageSrc,
+    ...GALLERY_SLOTS.map((slot) => slot.imageSrc),
+  ].map((src) => toAbsoluteUrl(src));
 }
 
 export function buildHomeStructuredData() {
@@ -48,7 +49,7 @@ export function buildHomeStructuredData() {
         },
         image: workshopImages,
         description:
-          "Bengkel mobil rumahan spesialis mobil tua (motuba) di Srandakan, Bantul, Yogyakarta untuk servis, pengecatan, variasi, dan jemput unit area sekitar.",
+          "Bengkel mobil rumahan spesialis mobil tua (motuba) di Srandakan, Bantul, Yogyakarta (Jogja) untuk servis, pengecatan, variasi, dan jemput unit area sekitar.",
         telephone: `+${WORKSHOP_PROFILE.whatsappE164}`,
         hasMap: WORKSHOP_PROFILE.mapsUrl,
         address: {
@@ -96,7 +97,7 @@ export function buildHomeStructuredData() {
           "Perawatan karburator",
           "Pengecatan bodi mobil",
           "Variasi mobil tua",
-          "Restorasi motuba",
+          "Perapian bodi mobil tua",
         ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",

@@ -23,6 +23,7 @@ interface FormErrors {
 interface SubmittedResult {
   url: string;
   message: string;
+  popupBlocked: boolean;
 }
 
 export function ConsultationForm() {
@@ -117,18 +118,19 @@ export function ConsultationForm() {
     );
 
     // Call window.open synchronously inside submit handler so mobile browsers do not block it.
-    window.open(url, "_blank", "noopener,noreferrer");
+    const openedWindow = window.open(url, "_blank", "noopener,noreferrer");
     setSubmittedResult({
       url,
       message,
+      popupBlocked: openedWindow === null,
     });
   }
 
   const errorCount = [errors.carModel, errors.notes].filter(Boolean).length;
 
   return (
-    <div className="rounded-[4px] border-2 border-ink bg-canvas p-5 sm:p-7">
-      <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-4">
+    <div className="rounded-[6px] border border-border bg-card p-5 sm:p-8">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-border pb-4">
         <h3 className="font-display text-2xl font-bold text-ink">
           Formulir Cek Keluhan Cepat
         </h3>
@@ -137,14 +139,13 @@ export function ConsultationForm() {
         </span>
       </div>
 
-      {preselectNotice ? (
-        <p
-          aria-live="polite"
-          className="mt-4 rounded-[2px] border border-ink-muted bg-surface px-3.5 py-2.5 text-sm font-medium text-ink"
-        >
-          {preselectNotice}
-        </p>
-      ) : null}
+      <div aria-live="polite" aria-atomic="true">
+        {preselectNotice ? (
+          <p className="mt-4 rounded-[2px] border border-ink-muted bg-surface px-3.5 py-2.5 text-sm font-medium text-ink">
+            {preselectNotice}
+          </p>
+        ) : null}
+      </div>
 
       {errorCount > 0 ? (
         <div
@@ -167,7 +168,7 @@ export function ConsultationForm() {
             htmlFor="customer-name"
             className="block text-sm font-semibold text-ink"
           >
-            Nama Anda{" "}
+            Nama panggilan{" "}
             <span className="font-normal text-ink-muted">(opsional)</span>
           </label>
           <input
@@ -177,8 +178,8 @@ export function ConsultationForm() {
             autoComplete="name"
             value={customerName}
             onChange={(event) => setCustomerName(event.target.value)}
-            placeholder="Misal: Pak Budi"
-            className="mt-1.5 min-h-11 w-full rounded-[2px] border border-ink-muted bg-field px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted"
+            placeholder="Misal: Pak Budi atau Mas Dani"
+            className="mt-1.5 min-h-11 w-full rounded-[4px] border border-ink-muted bg-field px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted"
           />
         </div>
 
@@ -222,7 +223,6 @@ export function ConsultationForm() {
           {errors.carModel ? (
             <p
               id="car-model-error"
-              role="alert"
               className="mt-1.5 text-sm font-semibold text-accent"
             >
               {errors.carModel}
@@ -361,7 +361,6 @@ export function ConsultationForm() {
           {errors.notes ? (
             <p
               id="notes-error"
-              role="alert"
               className="mt-1.5 text-sm font-semibold text-accent"
             >
               {errors.notes}
@@ -377,41 +376,40 @@ export function ConsultationForm() {
         </button>
       </form>
 
-      {submittedResult ? (
-        <div
-          aria-live="polite"
-          className="mt-6 rounded-[4px] border border-ink bg-surface p-4"
-        >
-          <p className="text-sm font-bold text-ink">
-            Pesan WhatsApp sudah disiapkan untuk {WORKSHOP_PROFILE.phoneDisplay}
-            .
-          </p>
-          <p className="mt-1 text-sm text-ink-muted">
-            Tab WhatsApp sudah dipicu. Jika belum terbuka otomatis di browser
-            atau perangkat ini, klik tombol buka manual atau salin teks pesan di
-            bawah.
-          </p>
+      <div aria-live="polite" aria-atomic="true">
+        {submittedResult ? (
+          <div className="mt-6 rounded-[4px] border border-ink bg-surface p-4">
+            <p className="text-sm font-bold text-ink">
+              Pesan WhatsApp sudah disiapkan untuk{" "}
+              {WORKSHOP_PROFILE.phoneDisplay}.
+            </p>
+            <p className="mt-1 text-sm text-ink-muted">
+              {submittedResult.popupBlocked
+                ? "Browser memblokir pembukaan tab WhatsApp otomatis. Klik tombol buka manual atau salin teks pesan di bawah."
+                : "Tab WhatsApp sudah dipicu. Jika belum terbuka otomatis di browser atau perangkat ini, klik tombol buka manual atau salin teks pesan di bawah."}
+            </p>
 
-          <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-[2px] border border-ink-muted bg-canvas p-3 font-mono text-xs leading-relaxed text-ink">
-            {submittedResult.message}
-          </pre>
+            <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-[2px] border border-ink-muted bg-canvas p-3 font-mono text-xs leading-relaxed text-ink">
+              {submittedResult.message}
+            </pre>
 
-          <div className="mt-3 flex flex-wrap items-start gap-3">
-            <a
-              href={submittedResult.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center rounded-[4px] bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors duration-150 hover:bg-accent-hover"
-            >
-              Buka WhatsApp secara manual
-            </a>
-            <CopyButton
-              value={submittedResult.message}
-              label="Salin teks pesan"
-            />
+            <div className="mt-3 flex flex-wrap items-start gap-3">
+              <a
+                href={submittedResult.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center rounded-[4px] bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors duration-150 hover:bg-accent-hover"
+              >
+                Buka WhatsApp secara manual
+              </a>
+              <CopyButton
+                value={submittedResult.message}
+                label="Salin teks pesan"
+              />
+            </div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </div>
   );
 }

@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Bengkel mobil rumahan spesialis mobil tua (motuba) untuk servis, pengecatan, variasi, dan jemput unit di Srandakan, Bantul, Yogyakarta.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f4f0e6",
-    theme_color: "#f4f0e6",
+    background_color: "#f6f5f1",
+    theme_color: "#161513",
     lang: "id",
     icons: [
       {

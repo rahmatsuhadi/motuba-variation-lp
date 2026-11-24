@@ -9,58 +9,55 @@ export function LocationSection() {
     <section
       id="lokasi"
       aria-labelledby="lokasi-heading"
-      className="border-t border-ink py-12 sm:py-16 lg:py-[88px]"
+      className="bg-canvas py-14 sm:py-20 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1160px] grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
         <div className="lg:col-span-7">
-          <div className="border-t-2 border-ink pt-4">
-            <h2
-              id="lokasi-heading"
-              className="font-display text-[clamp(1.75rem,3vw+0.85rem,2.75rem)] font-bold leading-[1.08] text-ink"
-            >
-              Lokasi Bengkel di Srandakan, Bantul
-            </h2>
-          </div>
+          <h2
+            id="lokasi-heading"
+            className="font-display text-[clamp(2rem,3.2vw+0.85rem,3rem)] font-bold leading-[1.05] text-ink"
+          >
+            Lokasi Bengkel di Srandakan, Bantul
+          </h2>
 
-          <dl className="mt-6 divide-y divide-rule border-y border-ink">
-            <div className="py-4">
+          <dl className="mt-6 grid grid-cols-1 divide-y divide-border rounded-[6px] border border-border bg-card sm:grid-cols-2">
+            <div className="p-5 sm:col-span-2">
               <dt className="text-xs font-semibold text-ink-muted">
                 Alamat lengkap
               </dt>
-              <dd className="mt-1 max-w-[58ch] text-base font-medium leading-relaxed text-ink">
+              <dd className="mt-1.5 max-w-[58ch] text-base font-medium leading-relaxed text-ink">
                 <address className="not-italic">
                   {WORKSHOP_PROFILE.address}
                 </address>
               </dd>
             </div>
 
-            <div className="py-4">
+            <div className="p-5 sm:col-span-2">
               <dt className="text-xs font-semibold text-ink-muted">
                 Patokan jalur
               </dt>
-              <dd className="mt-1 max-w-[58ch] text-base leading-relaxed text-ink">
+              <dd className="mt-1.5 max-w-[58ch] text-base leading-relaxed text-ink">
                 {WORKSHOP_PROFILE.routeLandmark}
               </dd>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-2">
-              <div>
-                <dt className="text-xs font-semibold text-ink-muted">
-                  Plus Code Google Maps
-                </dt>
-                <dd className="mt-1 font-mono text-sm font-medium text-ink">
-                  {WORKSHOP_PROFILE.plusCodeShort}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold text-ink-muted">
-                  Koordinat peta
-                </dt>
-                <dd className="mt-1 font-mono text-sm font-medium text-ink">
-                  {WORKSHOP_PROFILE.coordinates.lat},{" "}
-                  {WORKSHOP_PROFILE.coordinates.lng}
-                </dd>
-              </div>
+            <div className="p-5 sm:border-r sm:border-border">
+              <dt className="text-xs font-semibold text-ink-muted">
+                Plus Code Google Maps
+              </dt>
+              <dd className="mt-1.5 font-mono text-sm font-medium text-ink">
+                {WORKSHOP_PROFILE.plusCodeShort}
+              </dd>
+            </div>
+
+            <div className="p-5">
+              <dt className="text-xs font-semibold text-ink-muted">
+                Koordinat peta
+              </dt>
+              <dd className="mt-1.5 font-mono text-sm font-medium text-ink">
+                {WORKSHOP_PROFILE.coordinates.lat},{" "}
+                {WORKSHOP_PROFILE.coordinates.lng}
+              </dd>
             </div>
           </dl>
 
@@ -74,11 +71,11 @@ export function LocationSection() {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="rounded-[4px] border-2 border-ink bg-surface p-6">
-            <h3 className="font-display text-2xl font-bold leading-tight text-ink">
+          <div className="dark-surface rounded-[6px] bg-asphalt p-6 text-on-dark sm:p-8">
+            <h3 className="font-display text-2xl font-bold leading-tight text-on-dark sm:text-3xl">
               Chat WhatsApp Dulu Sebelum Berangkat
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-ink sm:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-on-dark-muted sm:text-base">
               Karena jadwal bengkel fleksibel dan pengerjaan sering menyesuaikan
               kondisi lapangan, chat WhatsApp dulu sebelum berangkat ke lokasi
               agar garasi dipastikan buka dan siap menerima unit.
@@ -97,15 +94,18 @@ export function LocationSection() {
                 href={WORKSHOP_PROFILE.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] border border-ink bg-canvas px-5 py-3 text-base font-semibold text-ink transition-colors duration-150 hover:bg-surface active:bg-surface"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] border border-on-dark/45 bg-asphalt-elevated px-5 py-3 text-base font-semibold text-on-dark transition-colors duration-150 hover:border-on-dark hover:bg-asphalt active:bg-asphalt"
               >
                 Buka Rute di Google Maps
               </a>
               <a
                 href={WORKSHOP_PROFILE.phoneHref}
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] border border-ink-muted bg-canvas px-5 py-3 text-base font-semibold text-ink transition-colors duration-150 hover:border-ink hover:bg-surface active:bg-surface"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] border border-asphalt-border bg-asphalt px-5 py-3 text-base font-semibold text-on-dark transition-colors duration-150 hover:border-on-dark/60 hover:bg-asphalt-elevated"
               >
-                Telepon {WORKSHOP_PROFILE.phoneDisplay}
+                <span>Telepon</span>
+                <span className="ml-1.5 font-mono font-medium">
+                  {WORKSHOP_PROFILE.phoneDisplay}
+                </span>
               </a>
             </div>
           </div>

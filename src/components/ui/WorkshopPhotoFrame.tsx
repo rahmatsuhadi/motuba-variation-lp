@@ -1,80 +1,49 @@
 import Image from "next/image";
-import type { PhotoAspectRatio } from "@/data/workshop";
-
-const ASPECT_CLASS_MAP: Record<PhotoAspectRatio, string> = {
-  "4/3": "aspect-[4/3]",
-  "16/10": "aspect-[16/10]",
-  "1/1": "aspect-square",
-  "3/4": "aspect-[3/4]",
-};
 
 interface WorkshopPhotoFrameProps {
-  slotCode: string;
-  imageSrc: string | null;
-  placeholderSrc: string;
+  imageSrc: string;
   alt: string;
-  aspectRatio: PhotoAspectRatio;
-  aspectLabel: string;
+  aspectRatio?: "4/3" | "16/10";
   width: number;
   height: number;
   sizes: string;
   isHero?: boolean;
-  placeholderHint: string;
+  objectPosition?: string;
+  className?: string;
 }
 
+const ASPECT_CLASS_MAP = {
+  "4/3": "aspect-[4/3]",
+  "16/10": "aspect-[16/10]",
+} as const;
+
 export function WorkshopPhotoFrame({
-  slotCode,
   imageSrc,
-  placeholderSrc,
   alt,
-  aspectRatio,
-  aspectLabel,
+  aspectRatio = "4/3",
   width,
   height,
   sizes,
   isHero = false,
-  placeholderHint,
+  objectPosition,
+  className = "",
 }: WorkshopPhotoFrameProps) {
-  const isPlaceholder = imageSrc === null;
-  const resolvedSrc = imageSrc ?? placeholderSrc;
-  const aspectClass = ASPECT_CLASS_MAP[aspectRatio];
-
   return (
     <div
-      className={
-        isPlaceholder
-          ? "overflow-hidden rounded-[4px] border border-dashed border-ink-muted bg-surface"
-          : "overflow-hidden rounded-[4px] border border-ink bg-surface"
-      }
+      className={`relative w-full overflow-hidden rounded-[6px] bg-asphalt-elevated ${ASPECT_CLASS_MAP[aspectRatio]} ${className}`}
     >
-      <div className="flex items-center justify-between gap-2 border-b border-ink-muted/40 bg-canvas px-3 py-2 text-xs">
-        <span className="font-mono font-medium text-accent">{slotCode}</span>
-        <span className="font-mono text-ink-muted">
-          {isPlaceholder ? `Placeholder ${aspectLabel}` : `Foto ${aspectLabel}`}
-        </span>
-      </div>
-
-      <div
-        className={`relative w-full overflow-hidden bg-surface ${aspectClass}`}
-      >
-        <Image
-          src={resolvedSrc}
-          alt={alt}
-          width={width}
-          height={height}
-          sizes={sizes}
-          fetchPriority={isHero ? "high" : undefined}
-          loading={isHero ? "eager" : "lazy"}
-          unoptimized={resolvedSrc.endsWith(".svg")}
-          className="h-full w-full object-cover"
-        />
-      </div>
-
-      {isPlaceholder ? (
-        <div className="border-t border-ink-muted/40 bg-canvas px-3 py-2 text-xs text-ink-muted">
-          {placeholderHint}
-        </div>
-      ) : null}
+      <Image
+        src={imageSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={sizes}
+        preload={isHero}
+        fetchPriority={isHero ? "high" : undefined}
+        loading={isHero ? undefined : "lazy"}
+        style={objectPosition ? { objectPosition } : undefined}
+        className="h-full w-full object-cover"
+      />
     </div>
   );
 }

@@ -34,6 +34,19 @@ export function MobileNavDrawer({
       wasOpenRef.current = true;
       const previousOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
+
+      const inertedElements: HTMLElement[] = [];
+      for (const child of Array.from(document.body.children)) {
+        if (
+          child instanceof HTMLElement &&
+          !child.hasAttribute("data-mobile-nav-portal") &&
+          !child.inert
+        ) {
+          child.inert = true;
+          inertedElements.push(child);
+        }
+      }
+
       closeButtonRef.current?.focus();
 
       function handleKeyDown(event: KeyboardEvent) {
@@ -69,6 +82,9 @@ export function MobileNavDrawer({
       window.addEventListener("keydown", handleKeyDown);
       return () => {
         document.body.style.overflow = previousOverflow;
+        for (const el of inertedElements) {
+          el.inert = false;
+        }
         window.removeEventListener("keydown", handleKeyDown);
       };
     }
@@ -85,12 +101,15 @@ export function MobileNavDrawer({
   const drawerOverlay =
     isOpen && typeof document !== "undefined"
       ? createPortal(
-          <div className="fixed inset-0 z-50 flex justify-end lg:hidden">
+          <div
+            data-mobile-nav-portal=""
+            className="dark-surface fixed inset-0 z-50 flex justify-end lg:hidden"
+          >
             <button
               type="button"
               aria-label="Tutup menu navigasi"
               onClick={() => closeDrawer(true)}
-              className="fixed inset-0 bg-ink/45"
+              className="fixed inset-0 bg-asphalt/75"
               tabIndex={-1}
             />
             <div
@@ -99,31 +118,31 @@ export function MobileNavDrawer({
               role="dialog"
               aria-modal="true"
               aria-label="Menu navigasi Motuba Variation Workshop"
-              className="relative z-10 flex h-full w-full max-w-xs flex-col justify-between overflow-y-auto border-l-2 border-ink bg-canvas p-5 shadow-[-8px_0_24px_rgba(28,27,24,0.18)]"
+              className="relative z-10 flex h-full w-full max-w-xs flex-col justify-between overflow-y-auto border-l border-asphalt-border bg-asphalt p-5 text-on-dark shadow-[var(--shadow-drawer)]"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-ink pb-4">
-                  <span className="font-display text-xl font-bold text-ink">
+                <div className="flex items-center justify-between border-b border-asphalt-border pb-4">
+                  <span className="font-display text-xl font-bold text-on-dark">
                     Menu Bengkel
                   </span>
                   <button
                     ref={closeButtonRef}
                     type="button"
                     onClick={() => closeDrawer(true)}
-                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-[4px] border border-ink-muted bg-canvas px-3 text-sm font-semibold text-ink transition-colors duration-150 hover:border-ink hover:bg-surface"
+                    className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-[4px] border border-on-dark/40 bg-asphalt-elevated px-3 text-sm font-semibold text-on-dark transition-colors duration-150 hover:border-on-dark hover:bg-asphalt"
                   >
                     Tutup
                   </button>
                 </div>
 
                 <nav aria-label="Navigasi mobile" className="mt-4">
-                  <ul className="divide-y divide-rule border-b border-rule">
+                  <ul className="divide-y divide-asphalt-border border-b border-asphalt-border">
                     {navItems.map((item) => (
                       <li key={item.href}>
                         <a
                           href={item.href}
                           onClick={() => closeDrawer(false)}
-                          className="flex min-h-12 items-center justify-between py-3 text-base font-semibold text-ink transition-colors duration-150 hover:text-accent"
+                          className="flex min-h-12 items-center justify-between py-3 text-base font-semibold text-on-dark transition-colors duration-150 hover:text-accent-bright"
                         >
                           <span>{item.label}</span>
                         </a>
@@ -145,9 +164,10 @@ export function MobileNavDrawer({
                 </div>
               </div>
 
-              <div className="mt-6 border-t border-rule pt-4 text-xs leading-relaxed text-ink-muted">
-                <p className="font-semibold text-ink">
-                  Telepon / WA: {phoneDisplay}
+              <div className="mt-6 border-t border-asphalt-border pt-4 text-xs leading-relaxed text-on-dark-muted">
+                <p className="font-semibold text-on-dark">
+                  Telepon / WA:{" "}
+                  <span className="font-mono font-medium">{phoneDisplay}</span>
                 </p>
                 <p className="mt-1">{address}</p>
               </div>
@@ -163,9 +183,9 @@ export function MobileNavDrawer({
         ref={triggerRef}
         type="button"
         aria-expanded={isOpen}
-        aria-controls="mobile-nav-drawer"
+        aria-controls={isOpen ? "mobile-nav-drawer" : undefined}
         onClick={() => setIsOpen(true)}
-        className="inline-flex min-h-11 min-w-11 shrink-0 items-center gap-1.5 rounded-[4px] border border-ink bg-canvas px-3 py-2 text-sm font-semibold text-ink transition-colors duration-150 hover:bg-surface active:bg-surface"
+        className="inline-flex min-h-11 min-w-11 shrink-0 items-center gap-1.5 rounded-[4px] border border-on-dark/40 bg-asphalt-elevated px-3 py-2 text-sm font-semibold text-on-dark transition-colors duration-150 hover:border-on-dark hover:bg-asphalt active:bg-asphalt"
       >
         <svg
           width="18"

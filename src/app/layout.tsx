@@ -32,7 +32,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f4f0e6",
+  themeColor: "#161513",
   colorScheme: "light",
 };
 

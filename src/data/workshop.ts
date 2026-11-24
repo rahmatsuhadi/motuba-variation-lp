@@ -25,7 +25,7 @@ export interface NavItem {
 }
 
 export interface QuickInfoItem {
-  code: string;
+  icon: "calendar" | "map" | "truck";
   label: string;
   value: string;
   detail: string;
@@ -33,9 +33,11 @@ export interface QuickInfoItem {
 
 export type ServiceSlug = "servis" | "cat" | "variasi" | "jemput";
 
+export type ServiceTier = "core" | "body" | "pickup";
+
 export interface ServiceItem {
-  code: string;
   slug: ServiceSlug;
+  tier: ServiceTier;
   title: string;
   summary: string;
   symptomsOrNotes: string[];
@@ -43,30 +45,20 @@ export interface ServiceItem {
 }
 
 export interface HeroPhotoConfig {
-  slotCode: string;
-  imageSrc: string | null;
-  placeholderSrc: string;
+  imageSrc: string;
   alt: string;
-  caption: string;
-  aspectLabel: string;
   width: number;
   height: number;
 }
 
-export type PhotoAspectRatio = "4/3" | "16/10" | "1/1" | "3/4";
-
 export interface GallerySlot {
-  slotCode: string;
-  imageSrc: string | null;
-  placeholderSrc: string;
+  imageSrc: string;
   alt: string;
   carModel: string;
   workSummary: string;
-  placeholderHint: string;
-  aspectRatio: PhotoAspectRatio;
-  aspectLabel: string;
   width: number;
   height: number;
+  objectPosition?: string;
   featured?: boolean;
 }
 
@@ -96,7 +88,7 @@ export const WORKSHOP_PROFILE: WorkshopProfile = {
     lng: 110.2397199,
   },
   routeLandmark:
-    "Dekat jalur Jl. Kuwaru, pojok ujung desa ambil ke utara masuk kedalam",
+    "Dekat jalur Jl. Kuwaru, pojok ujung desa ambil ke utara masuk ke dalam.",
   scheduleSummary:
     "Fleksibel sesuai kesediaan waktu lewat janjian WhatsApp, paling aktif buka di hari Minggu.",
   pickupPolicy:
@@ -112,29 +104,31 @@ export const NAV_ITEMS: readonly NavItem[] = [
 
 export const QUICK_INFO_ITEMS: readonly QuickInfoItem[] = [
   {
-    code: "01",
+    icon: "calendar",
+    label: "Jadwal buka",
+    value: "Paling aktif tiap hari Minggu",
+    detail:
+      "Hari lain tetap bisa janjian langsung lewat WhatsApp sebelum meluncur.",
+  },
+  {
+    icon: "map",
     label: "Lokasi bengkel",
-    value: "Srandakan, Bantul, Yogyakarta",
-    detail: "Dekat Jl. Kuwaru dan Jalur Lintas Selatan (JJLS).",
+    value: "Srandakan, Bantul",
+    detail:
+      "Dekat jalur Jl. Kuwaru dan Jalur Lintas Selatan (JJLS), pesisir selatan.",
   },
   {
-    code: "02",
-    label: "Jadwal operasional",
-    value: "Fleksibel sesuai janjian WA",
-    detail: "Paling ramai dan aktif buka tiap hari Minggu.",
-  },
-  {
-    code: "03",
+    icon: "truck",
     label: "Jemput unit",
     value: "Tersedia untuk area sekitar",
-    detail: "Konfirmasi jarak, kondisi mobil, dan jadwal via WA.",
+    detail: "Konfirmasi jarak, kondisi mobil, dan jadwal mekanik via WhatsApp.",
   },
 ];
 
 export const SERVICES: readonly ServiceItem[] = [
   {
-    code: "01",
     slug: "servis",
+    tier: "core",
     title: "Servis & Perawatan",
     summary:
       "Pengecekan mesin, sistem bahan bakar lawas, pengereman, kaki-kaki, dan kelistrikan ringan agar mobil tua tetap nyaman dipakai harian maupun melintas Jalur Lintas Selatan.",
@@ -147,8 +141,8 @@ export const SERVICES: readonly ServiceItem[] = [
       "Estimasi pengerjaan dan kebutuhan komponen dibahas transparan setelah cek langsung atau melihat foto serta video keluhan.",
   },
   {
-    code: "02",
     slug: "cat",
+    tier: "body",
     title: "Pengecatan & Perapian",
     summary:
       "Pengecatan panel, perapian bagian bodi yang keropos atau kusam, dan penyegaran tampilan luar agar mobil tua kembali sedap dipandang.",
@@ -161,8 +155,8 @@ export const SERVICES: readonly ServiceItem[] = [
       "Kirim foto bagian bodi dari beberapa sisi lewat WhatsApp agar mekanik bisa memberi gambaran awal sebelum unit dibawa.",
   },
   {
-    code: "03",
     slug: "variasi",
+    tier: "body",
     title: "Variasi & Penyesuaian",
     summary:
       "Pemasangan aksesori, peremajaan detail eksterior maupun interior ringan, dan penyesuaian tampilan mobil tua mengikuti selera pemilik.",
@@ -175,8 +169,8 @@ export const SERVICES: readonly ServiceItem[] = [
       "Sebutkan tipe mobil dan barang variasi yang sudah ada atau masih dicari saat mengirim pesan konsultasi.",
   },
   {
-    code: "04",
     slug: "jemput",
+    tier: "pickup",
     title: "Jemput Unit Area Sekitar",
     summary:
       "Opsi penjemputan unit untuk area Srandakan, Bantul, dan sekitarnya yang masih terjangkau apabila pemilik belum sempat mengantar atau mobil berisiko disetir langsung.",
@@ -190,77 +184,49 @@ export const SERVICES: readonly ServiceItem[] = [
   },
 ];
 
-// Panduan pemilik: untuk mengganti foto hero, simpan gambar ke public/images/
-// lalu ubah imageSrc menjadi "/images/nama-file.jpg".
 export const HERO_PHOTO: HeroPhotoConfig = {
-  slotCode: "SLOT HERO",
   imageSrc: "/images/hero-garasi-motuba.jpg",
-  placeholderSrc: "/images/placeholder-hero.svg",
-  alt: "Suasana garasi Motuba Variation Workshop di Srandakan, Bantul dengan unit Suzuki Baleno dan kendaraan lain yang sedang ditangani",
-  caption: "Suasana garasi dan pengerjaan mobil tua di Srandakan, Bantul.",
-  aspectLabel: "4:3",
+  alt: "Suasana garasi Motuba Variation Workshop di Srandakan, Bantul dengan unit Honda Civic dan kendaraan lain yang sedang ditangani",
   width: 1200,
   height: 900,
 };
 
-// Panduan pemilik: isi slot galeri satu per satu dengan menaruh foto di public/images/
-// lalu mengganti imageSrc dari null ke "/images/garapan-01.jpg", dst.
 export const GALLERY_SLOTS: readonly GallerySlot[] = [
   {
-    slotCode: "SLOT 01",
     imageSrc: "/images/garapan-civic-wonder.jpg",
-    placeholderSrc: "/images/placeholder-slot.svg",
     alt: "Honda Civic Wonder hijau dengan kap mesin terbuka saat pengecekan ruang mesin di garasi Motuba Variation Workshop",
     carModel: "Honda Civic Wonder",
     workSummary:
       "Pengecekan ruang mesin dan perawatan rutin mobil tua di garasi Motuba Variation.",
-    placeholderHint: "Foto garapan utama di garasi Motuba Variation (1:1).",
-    aspectRatio: "1/1",
-    aspectLabel: "1:1",
     width: 1200,
     height: 1200,
     featured: true,
   },
   {
-    slotCode: "SLOT 02",
     imageSrc: "/images/garapan-ganti-kopling.jpg",
-    placeholderSrc: "/images/placeholder-slot.svg",
     alt: "Tangan mekanik memegang matahari kopling lama yang aus dengan unit kopling baru di meja bengkel",
     carModel: "Penggantian Matahari Kopling",
     workSummary:
       "Perbandingan komponen matahari kopling lama yang sudah aus dan berkarat dengan unit baru sebelum pemasangan.",
-    placeholderHint: "Foto penggantian komponen mekanis (3:4).",
-    aspectRatio: "3/4",
-    aspectLabel: "3:4",
     width: 900,
     height: 1200,
+    objectPosition: "50% 42%",
   },
   {
-    slotCode: "SLOT 03",
     imageSrc: "/images/garapan-mesin-karburator.jpg",
-    placeholderSrc: "/images/placeholder-slot.svg",
     alt: "Detail ruang mesin mobil tua karburator dengan tutup klep terbuka saat proses servis",
     carModel: "Servis Mesin Karburator",
     workSummary:
       "Pembongkaran tutup klep dan pengecekan karburator serta jalur pengapian mesin mobil tua.",
-    placeholderHint: "Foto pengerjaan ruang mesin atau karburator (4:3).",
-    aspectRatio: "4/3",
-    aspectLabel: "4:3",
     width: 1120,
     height: 840,
   },
   {
-    slotCode: "SLOT 04",
     imageSrc: "/images/garapan-kelistrikan-kabel.jpg",
-    placeholderSrc: "/images/placeholder-slot.svg",
     alt: "Penelusuran kabel kelistrikan bawah dasbor dan rumah kunci kontak mobil tua di garasi Motuba Variation Workshop",
     carModel: "Penelusuran Kelistrikan & Kunci Kontak",
     workSummary:
       "Pengecekan jalur kabel bawah dasbor, rumah kunci kontak, dan saklar kombinasi mobil tua di garasi Motuba Variation.",
-    placeholderHint:
-      "Foto pengerjaan kelistrikan atau perapian unit asli (4:3).",
-    aspectRatio: "4/3",
-    aspectLabel: "4:3",
     width: 1120,
     height: 840,
   },

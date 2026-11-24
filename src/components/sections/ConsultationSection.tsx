@@ -6,20 +6,18 @@ export function ConsultationSection() {
     <section
       id="keluhan"
       aria-labelledby="keluhan-heading"
-      className="border-y border-ink bg-surface py-12 sm:py-16 lg:py-[88px]"
+      className="bg-canvas py-14 sm:py-20 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1160px] grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
         <div className="lg:col-span-5">
-          <div className="border-t-2 border-ink pt-4">
-            <h2
-              id="keluhan-heading"
-              className="font-display text-[clamp(1.75rem,3vw+0.85rem,2.75rem)] font-bold leading-[1.08] text-ink"
-            >
-              Tanya Keluhan Dulu Sebelum Meluncur
-            </h2>
-          </div>
+          <h2
+            id="keluhan-heading"
+            className="font-display text-[clamp(2rem,3.2vw+0.85rem,3rem)] font-bold leading-[1.05] text-ink"
+          >
+            Tanya Keluhan Dulu Sebelum Meluncur
+          </h2>
 
-          <p className="mt-4 max-w-[52ch] text-[clamp(1rem,0.25vw+0.94rem,1.0625rem)] leading-[1.65] text-ink">
+          <p className="mt-4 max-w-[52ch] text-base leading-[1.65] text-ink">
             {WORKSHOP_PROFILE.scheduleSummary}
           </p>
 
@@ -29,8 +27,8 @@ export function ConsultationSection() {
             waktu luang dan ketersediaan ruang kerja.
           </p>
 
-          <div className="mt-6 rounded-[4px] border border-ink-muted bg-canvas p-4">
-            <h3 className="font-display text-lg font-bold text-ink">
+          <div className="mt-6 rounded-[6px] border border-border bg-surface p-5">
+            <h3 className="font-display text-xl font-bold text-ink">
               Ketentuan Layanan Jemput Unit
             </h3>
             <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
